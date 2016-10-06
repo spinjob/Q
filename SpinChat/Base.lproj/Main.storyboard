@@ -1,14 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="ProximaNova-Reg.otf">
+            <string>ProximaNova-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Sign In View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SignInViewController" customModule="SpinChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +23,199 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="spinchat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6X-aZ-yn7">
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="spencer.johnson10@gmail.com" borderStyle="roundedRect" placeholder="email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dKl-QX-8j3">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="DPy-Wi-gcC"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sLt-z0-VlS">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="wY0-tc-jrY"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShO-Jr-goj">
+                                <state key="normal" title="spin it"/>
+                                <connections>
+                                    <action selector="spinItTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OIW-kP-RLs"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="sLt-z0-VlS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3vF-hD-03f"/>
+                            <constraint firstItem="o6X-aZ-yn7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YsE-TF-J77"/>
+                            <constraint firstItem="ShO-Jr-goj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZzE-V1-SiS"/>
+                            <constraint firstItem="dKl-QX-8j3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pvA-Y2-6DU"/>
+                            <constraint firstItem="sLt-z0-VlS" firstAttribute="top" secondItem="dKl-QX-8j3" secondAttribute="bottom" constant="19" id="uCQ-EJ-86h"/>
+                            <constraint firstItem="ShO-Jr-goj" firstAttribute="top" secondItem="sLt-z0-VlS" secondAttribute="bottom" constant="24.5" id="vYU-gj-XUu"/>
+                            <constraint firstItem="dKl-QX-8j3" firstAttribute="top" secondItem="o6X-aZ-yn7" secondAttribute="bottom" constant="41" id="vu3-Kg-WtL"/>
+                            <constraint firstItem="o6X-aZ-yn7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="143" id="yPs-ri-KV7"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="dKl-QX-8j3" id="fht-FT-syd"/>
+                        <outlet property="passwordTextField" destination="sLt-z0-VlS" id="T91-w7-PtQ"/>
+                        <segue destination="dxk-kE-jwH" kind="presentation" identifier="signInSegue" id="92b-aV-i1Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="Ivr-Vd-JmH">
+            <objects>
+                <viewController id="Wyf-8h-ZQ8" customClass="ChatViewController" customModule="SpinChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Ww-NW-fYt"/>
+                        <viewControllerLayoutGuide type="bottom" id="GSR-mI-upi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HZa-Al-4ZW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXv-UD-w7T">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Eza-Rv-X4L"/>
+                                    <constraint firstAttribute="width" constant="64" id="Swr-O2-ap7"/>
+                                </constraints>
+                                <state key="normal" title="+" image="Screen Shot 2016-05-17 at 7.38.49 PM.png"/>
+                                <connections>
+                                    <segue destination="buo-ix-NR1" kind="show" id="VYA-ZK-74N"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GSR-mI-upi" firstAttribute="top" secondItem="VXv-UD-w7T" secondAttribute="bottom" constant="31" id="SIh-io-Bi6"/>
+                            <constraint firstItem="VXv-UD-w7T" firstAttribute="centerX" secondItem="HZa-Al-4ZW" secondAttribute="centerX" id="ymy-Hv-na7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="yUC-dL-qTk">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="MP1-Zy-Sq0">
+                            <connections>
+                                <action selector="logoutTapped:" destination="Wyf-8h-ZQ8" id="boy-mW-nIT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Zy-4v-ozF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1925.5999999999999" y="139.880059970015"/>
+        </scene>
+        <!--Ask a Question-->
+        <scene sceneID="BbU-sR-AGa">
+            <objects>
+                <viewController id="buo-ix-NR1" customClass="PollViewController" customModule="SpinChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vnc-th-AeS"/>
+                        <viewControllerLayoutGuide type="bottom" id="tJS-it-lmF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rIA-xL-JeX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G40-0N-37E">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dow-Zi-zgS">
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
+                                <state key="normal" title="Add Image">
+                                    <color key="titleColor" red="0.098039215690000001" green="0.76862745099999996" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cameraTapped:" destination="buo-ix-NR1" eventType="touchUpInside" id="RIb-Bf-QJG"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type question here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hg6-tO-uKu">
+                                <color key="textColor" red="0.30821734670000001" green="0.39585533740000001" blue="0.53739041089999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Yes" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kjt-0C-gO4">
+                                <color key="backgroundColor" red="0.098039215690000001" green="0.76862745099999996" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="155" id="FLj-YC-JSE"/>
+                                    <constraint firstAttribute="height" constant="50" id="gh9-ho-Odz"/>
+                                </constraints>
+                                <color key="textColor" red="0.9830313664694611" green="0.99170596397903499" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="No" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oEh-zR-jty">
+                                <color key="backgroundColor" red="0.098039215690000001" green="0.76862745099999996" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5NP-v8-mOi"/>
+                                    <constraint firstAttribute="width" constant="155" id="DnM-io-OXa"/>
+                                </constraints>
+                                <color key="textColor" red="0.9830313665" green="0.991705964" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dow-Zi-zgS" firstAttribute="centerX" secondItem="G40-0N-37E" secondAttribute="centerX" id="2XS-t0-r3S"/>
+                            <constraint firstItem="G40-0N-37E" firstAttribute="centerX" secondItem="rIA-xL-JeX" secondAttribute="centerX" id="7Xg-iv-7ok"/>
+                            <constraint firstItem="G40-0N-37E" firstAttribute="top" secondItem="Vnc-th-AeS" secondAttribute="bottom" constant="134" id="FxR-cp-C9s"/>
+                            <constraint firstItem="G40-0N-37E" firstAttribute="leading" secondItem="rIA-xL-JeX" secondAttribute="leadingMargin" constant="15" id="SXc-r0-W5d"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="G40-0N-37E" secondAttribute="trailing" constant="15" id="VRh-eR-oE4"/>
+                            <constraint firstItem="kjt-0C-gO4" firstAttribute="top" secondItem="G40-0N-37E" secondAttribute="bottom" constant="23" id="bdW-xY-X7g"/>
+                            <constraint firstItem="Hg6-tO-uKu" firstAttribute="top" secondItem="Vnc-th-AeS" secondAttribute="bottom" constant="91" id="dd3-mT-q63"/>
+                            <constraint firstItem="kjt-0C-gO4" firstAttribute="leading" secondItem="rIA-xL-JeX" secondAttribute="leadingMargin" constant="15" id="ezR-tT-9Au"/>
+                            <constraint firstItem="oEh-zR-jty" firstAttribute="top" secondItem="G40-0N-37E" secondAttribute="bottom" constant="23" id="f1N-iX-WR4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oEh-zR-jty" secondAttribute="trailing" constant="15" id="v5O-jC-hve"/>
+                            <constraint firstItem="tJS-it-lmF" firstAttribute="top" secondItem="G40-0N-37E" secondAttribute="bottom" constant="239" id="vNh-u4-gs0"/>
+                            <constraint firstItem="Hg6-tO-uKu" firstAttribute="leading" secondItem="rIA-xL-JeX" secondAttribute="leadingMargin" constant="10" id="xhl-qj-h45"/>
+                            <constraint firstItem="dow-Zi-zgS" firstAttribute="centerY" secondItem="G40-0N-37E" secondAttribute="centerY" id="zQk-i4-u9i"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ask a Question" id="G0a-jK-i3j">
+                        <barButtonItem key="backBarButtonItem" title="X" id="3ZS-aW-4dj"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="G40-0N-37E" id="jbF-Qs-pQm"/>
+                        <outlet property="noTextField" destination="oEh-zR-jty" id="Zuw-Bi-iiZ"/>
+                        <outlet property="questionTextField" destination="Hg6-tO-uKu" id="oZ3-kK-3Hp"/>
+                        <outlet property="yesTextField" destination="kjt-0C-gO4" id="wA5-o0-6Kx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iUB-2Q-DDq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2716" y="139.880059970015"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0TC-vm-Th5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dxk-kE-jwH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PM6-c2-gEx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Wyf-8h-ZQ8" kind="relationship" relationship="rootViewController" id="CE1-9t-Iw3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J9k-XS-tI0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="986.39999999999998" y="140.77961019490255"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Screen Shot 2016-05-17 at 7.38.49 PM.png" width="326" height="336"/>
+    </resources>
 </document>
