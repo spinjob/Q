@@ -11,6 +11,7 @@
 		68203C851D9CC1BA004B7D95 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68203C841D9CC1BA004B7D95 /* ChatViewController.swift */; };
 		6846B1D11DA5C77400A58F46 /* PollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6846B1D01DA5C77400A58F46 /* PollViewController.swift */; };
 		686662291DA73DB800EA3668 /* SelectFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686662281DA73DB800EA3668 /* SelectFriendsViewController.swift */; };
+		6866622B1DA7427A00EA3668 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6866622A1DA7427A00EA3668 /* user.swift */; };
 		686E40FE1DA460DB00443230 /* Screen Shot 2016-05-17 at 7.38.49 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 686E40FD1DA460DA00443230 /* Screen Shot 2016-05-17 at 7.38.49 PM.png */; };
 		687E51991D9C9CD6004EB077 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687E51981D9C9CD6004EB077 /* AppDelegate.swift */; };
 		687E519B1D9C9CD6004EB077 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687E519A1D9C9CD6004EB077 /* SignInViewController.swift */; };
@@ -29,10 +30,11 @@
 /* Begin PBXFileReference section */
 		3286DAB26626AEC595768CEC /* Pods_SpinChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpinChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68203C7F1D9CBCEA004B7D95 /* SpinChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpinChat.entitlements; sourceTree = "<group>"; };
-		68203C821D9CC0FC004B7D95 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		68203C821D9CC0FC004B7D95 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SpinChat/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		68203C841D9CC1BA004B7D95 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		6846B1D01DA5C77400A58F46 /* PollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollViewController.swift; sourceTree = "<group>"; };
 		686662281DA73DB800EA3668 /* SelectFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFriendsViewController.swift; sourceTree = "<group>"; };
+		6866622A1DA7427A00EA3668 /* user.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
 		686E40FD1DA460DA00443230 /* Screen Shot 2016-05-17 at 7.38.49 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2016-05-17 at 7.38.49 PM.png"; sourceTree = "<group>"; };
 		687E51951D9C9CD6004EB077 /* SpinChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpinChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		687E51981D9C9CD6004EB077 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,11 +65,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6866622C1DA742A100EA3668 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				687E519A1D9C9CD6004EB077 /* SignInViewController.swift */,
+				686662281DA73DB800EA3668 /* SelectFriendsViewController.swift */,
+				6846B1D01DA5C77400A58F46 /* PollViewController.swift */,
+				68203C841D9CC1BA004B7D95 /* ChatViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6866622D1DA742C400EA3668 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6866622A1DA7427A00EA3668 /* user.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		687E518C1D9C9CD6004EB077 = {
 			isa = PBXGroup;
 			children = (
 				687E51971D9C9CD6004EB077 /* SpinChat */,
 				687E51961D9C9CD6004EB077 /* Products */,
+				68203C821D9CC0FC004B7D95 /* GoogleService-Info.plist */,
 				B8DD8A7AAC784A212BD2DCBC /* Pods */,
 				E9E341D4FB5A20C5E34984B6 /* Frameworks */,
 			);
@@ -86,15 +108,12 @@
 			children = (
 				68203C7F1D9CBCEA004B7D95 /* SpinChat.entitlements */,
 				687E51981D9C9CD6004EB077 /* AppDelegate.swift */,
-				687E519A1D9C9CD6004EB077 /* SignInViewController.swift */,
 				687E519C1D9C9CD6004EB077 /* Main.storyboard */,
-				686662281DA73DB800EA3668 /* SelectFriendsViewController.swift */,
-				6846B1D01DA5C77400A58F46 /* PollViewController.swift */,
-				68203C841D9CC1BA004B7D95 /* ChatViewController.swift */,
+				6866622C1DA742A100EA3668 /* ViewControllers */,
+				6866622D1DA742C400EA3668 /* Models */,
 				687E519F1D9C9CD6004EB077 /* Assets.xcassets */,
 				687E51A11D9C9CD6004EB077 /* LaunchScreen.storyboard */,
 				687E51A41D9C9CD6004EB077 /* Info.plist */,
-				68203C821D9CC0FC004B7D95 /* GoogleService-Info.plist */,
 				68F65F001DA5D45700496BCE /* Resources */,
 			);
 			path = SpinChat;
@@ -270,6 +289,7 @@
 			files = (
 				686662291DA73DB800EA3668 /* SelectFriendsViewController.swift in Sources */,
 				687E519B1D9C9CD6004EB077 /* SignInViewController.swift in Sources */,
+				6866622B1DA7427A00EA3668 /* user.swift in Sources */,
 				6846B1D11DA5C77400A58F46 /* PollViewController.swift in Sources */,
 				68203C851D9CC1BA004B7D95 /* ChatViewController.swift in Sources */,
 				687E51991D9C9CD6004EB077 /* AppDelegate.swift in Sources */,
