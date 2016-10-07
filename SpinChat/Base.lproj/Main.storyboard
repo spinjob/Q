@@ -164,12 +164,20 @@
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOZ-Rh-zBN">
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextTapped:" destination="buo-ix-NR1" eventType="touchUpInside" id="SG5-cS-nxc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dow-Zi-zgS" firstAttribute="centerX" secondItem="G40-0N-37E" secondAttribute="centerX" id="2XS-t0-r3S"/>
                             <constraint firstItem="G40-0N-37E" firstAttribute="centerX" secondItem="rIA-xL-JeX" secondAttribute="centerX" id="7Xg-iv-7ok"/>
                             <constraint firstItem="G40-0N-37E" firstAttribute="top" secondItem="Vnc-th-AeS" secondAttribute="bottom" constant="134" id="FxR-cp-C9s"/>
+                            <constraint firstItem="tJS-it-lmF" firstAttribute="top" secondItem="TOZ-Rh-zBN" secondAttribute="bottom" constant="20" id="QUv-BS-8i3"/>
+                            <constraint firstItem="TOZ-Rh-zBN" firstAttribute="centerX" secondItem="rIA-xL-JeX" secondAttribute="centerX" id="RUs-m2-cFZ"/>
                             <constraint firstItem="G40-0N-37E" firstAttribute="leading" secondItem="rIA-xL-JeX" secondAttribute="leadingMargin" constant="15" id="SXc-r0-W5d"/>
                             <constraint firstAttribute="trailingMargin" secondItem="G40-0N-37E" secondAttribute="trailing" constant="15" id="VRh-eR-oE4"/>
                             <constraint firstItem="kjt-0C-gO4" firstAttribute="top" secondItem="G40-0N-37E" secondAttribute="bottom" constant="23" id="bdW-xY-X7g"/>
@@ -187,21 +195,55 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="G40-0N-37E" id="jbF-Qs-pQm"/>
+                        <outlet property="nextButton" destination="TOZ-Rh-zBN" id="NxM-kc-uz0"/>
                         <outlet property="noTextField" destination="oEh-zR-jty" id="Zuw-Bi-iiZ"/>
                         <outlet property="questionTextField" destination="Hg6-tO-uKu" id="oZ3-kK-3Hp"/>
                         <outlet property="yesTextField" destination="kjt-0C-gO4" id="wA5-o0-6Kx"/>
+                        <segue destination="fI1-Vu-BOu" kind="show" identifier="selectFriendsSegue" id="MFi-gn-pgu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iUB-2Q-DDq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2716" y="139.880059970015"/>
         </scene>
+        <!--Select Friends View Controller-->
+        <scene sceneID="yYt-yg-5C3">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="fI1-Vu-BOu" customClass="SelectFriendsViewController" customModule="SpinChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fCv-KS-tiW"/>
+                        <viewControllerLayoutGuide type="bottom" id="ICS-Rt-ie3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kCI-UZ-ddy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mPa-89-Au1">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ICS-Rt-ie3" firstAttribute="top" secondItem="mPa-89-Au1" secondAttribute="bottom" id="8Rq-QY-p3B"/>
+                            <constraint firstItem="mPa-89-Au1" firstAttribute="leadingMargin" secondItem="kCI-UZ-ddy" secondAttribute="leadingMargin" id="AyG-MS-ClL"/>
+                            <constraint firstItem="mPa-89-Au1" firstAttribute="top" secondItem="fCv-KS-tiW" secondAttribute="bottom" id="H5G-tw-UPr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mPa-89-Au1" secondAttribute="trailingMargin" id="K3F-a6-0Uo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="mPa-89-Au1" id="zaY-xt-GYp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JfU-e5-Y03" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3534" y="139"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="0TC-vm-Th5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dxk-kE-jwH" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PM6-c2-gEx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="PM6-c2-gEx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

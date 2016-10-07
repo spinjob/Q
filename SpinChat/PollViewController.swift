@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class PollViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
@@ -14,6 +15,7 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var yesTextField: UITextField!
     @IBOutlet weak var noTextField: UITextField!
+    @IBOutlet weak var nextButton: UIButton!
     
     var imagePicker = UIImagePickerController()
     var activeField = UITextField()
@@ -48,11 +50,30 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     
-
-    @IBAction func nextButtonTapped(_ sender: AnyObject) {
+    @IBAction func nextTapped(_ sender: AnyObject) {
+        
+        nextButton.isEnabled = false
+        
+        let imagesFolder = FIRStorage.storage().reference().child("images")
+        
+        let imageData = UIImageJPEGRepresentation(imageView.image!, 0.1)!
+        
+        
+        imagesFolder.child("\(NSUUID().uuidString).jpg").put(imageData, metadata: nil) { (metadata, error) in
+            
+            print("We tried to upload")
+            if error != nil {
+                print("We had an error:\(error)!")
+            } else {
+                self.performSegue(withIdentifier: "selectFriendsSegue", sender: nil)
+            }
+        }
+        
     }
     
-    @IBAction func closeIconTapped(_ sender: AnyObject) {
-    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
+            }
+        }
 
-}
+
