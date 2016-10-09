@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>ss-pika.otf</string>
 		<string>ProximaNova-Reg.otf</string>
 		<string>ProximaNovaSoft-Bold.otf</string>
 		<string>ProximaNovaSoft.otf</string>

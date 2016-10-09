@@ -16,6 +16,8 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var yesTextField: UITextField!
     @IBOutlet weak var noTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var cameraIcon: UIButton!
+    
     
     var imagePicker = UIImagePickerController()
     var activeField = UITextField()
@@ -23,31 +25,61 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if imageView.isHidden == false {
+            moveTextFields()
+        } else {
+        
+        }
+        
         imagePicker.delegate = self
         
-        imageView.layer.borderWidth = 0.5
-        imageView.layer.borderColor = UIColor.lightGray.cgColor
+        imageView.isHidden = true
+        imageView.layer.borderWidth = 0
+        imageView.layer.borderColor = UIColor.clear.cgColor
+        imageView.layer.cornerRadius = 4
+        
+        questionTextField.sizeToFit()
         
         yesTextField.borderStyle = UITextBorderStyle.roundedRect
         noTextField.borderStyle = UITextBorderStyle.roundedRect
     
         navigationController?.navigationBar.barTintColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.gray, NSFontAttributeName: UIFont(name: "Proxima Nova", size: 20)!]
+        navigationController?.navigationBar.backItem?.backBarButtonItem!.title = "X"
         
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        [questionTextField .becomeFirstResponder()];
+    }
+    
+    override func viewDidLayoutSubviews() {
+        if imageView.isHidden == false {
+            moveTextFields()
+        } else {
+            
+        }
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
         let image = info[UIImagePickerControllerEditedImage] as! UIImage
+        
         imageView.image = image
         imageView.backgroundColor = UIColor.clear
+        imageView.isHidden = false
         
-        imagePicker.dismiss(animated: true, completion: nil)
+        imagePicker.dismiss(animated: true, completion: moveTextFields)
     }
     
     @IBAction func cameraTapped(_ sender: AnyObject) {
         imagePicker.sourceType = .camera
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
-        
+
     }
     
     @IBAction func nextTapped(_ sender: AnyObject) {
@@ -63,16 +95,30 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             
             print("We tried to upload")
             if error != nil {
-                print("We had an error:\(error)!")
+               
+                print(metadata?.downloadURL())
+                
             } else {
-                self.performSegue(withIdentifier: "selectFriendsSegue", sender: nil)
+                self.performSegue(withIdentifier: "selectFriendsSegue", sender: metadata?.downloadURL()!.absoluteString)
             }
         }
         
     }
     
+    func moveTextFields () {
+        
+        yesTextField.frame.origin = CGPoint(x: 37, y: 510)
+        noTextField.frame.origin = CGPoint(x: 220, y: 510)
+        questionTextField.frame.origin = CGPoint(x: 37, y: 460)
+        cameraIcon.frame.origin = CGPoint(x: 338, y: 395)
+        
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
+        let nextViewController = segue.destination as! SelectFriendsViewController
+        nextViewController.imageURL = sender as! String
+        nextViewController.questionString = questionTextField.text!
             }
         }
 

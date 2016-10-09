@@ -15,12 +15,21 @@ class SelectFriendsViewController: UIViewController, UITableViewDataSource, UITa
 
     var users : [User] = []
     
+    var imageURL = ""
+    
+    var questionString = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        navigationController?.navigationBar.barTintColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.gray, NSFontAttributeName: UIFont(name: "Proxima Nova", size: 20)!]
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
         FIRDatabase.database().reference().child("users").observe(FIRDataEventType.childAdded, with: {(snapshot) in
             print(snapshot)
             
@@ -30,7 +39,6 @@ class SelectFriendsViewController: UIViewController, UITableViewDataSource, UITa
             user.email = snapshotValue!["email"] as! String
             
             user.uid = snapshot.key
-            
             
             self.users.append(user)
             
@@ -43,6 +51,7 @@ class SelectFriendsViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }
+
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,6 +62,13 @@ class SelectFriendsViewController: UIViewController, UITableViewDataSource, UITa
         cell.textLabel?.text = user.email
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let user = users[indexPath.row]
+        let snap = ["from":user.email, "description": questionString, "imageURL":imageURL]
+        
+        FIRDatabase.database().reference().child("users").child(user.uid).child("snaps").childByAutoId().setValue(snap)
     }
     
     

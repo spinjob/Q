@@ -35,6 +35,7 @@
 		6846B1D01DA5C77400A58F46 /* PollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollViewController.swift; sourceTree = "<group>"; };
 		686662281DA73DB800EA3668 /* SelectFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFriendsViewController.swift; sourceTree = "<group>"; };
 		6866622A1DA7427A00EA3668 /* user.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
+		6866622E1DAAA2E600EA3668 /* ss-pika.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ss-pika.otf"; sourceTree = "<group>"; };
 		686E40FD1DA460DA00443230 /* Screen Shot 2016-05-17 at 7.38.49 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2016-05-17 at 7.38.49 PM.png"; sourceTree = "<group>"; };
 		687E51951D9C9CD6004EB077 /* SpinChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpinChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		687E51981D9C9CD6004EB077 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +129,7 @@
 				68F65F041DA5D47300496BCE /* ProximaNovaSoft.otf */,
 				68F65F051DA5D47300496BCE /* ProximaNovaSoft-Medium.otf */,
 				68F65F0B1DA5DF1500496BCE /* Next Button Image.png */,
+				6866622E1DAAA2E600EA3668 /* ss-pika.otf */,
 				686E40FD1DA460DA00443230 /* Screen Shot 2016-05-17 at 7.38.49 PM.png */,
 			);
 			name = Resources;
