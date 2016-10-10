@@ -116,6 +116,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yUC-dL-qTk">
+                        <barButtonItem key="backBarButtonItem" title="X" id="ybp-4Z-z9c"/>
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="MP1-Zy-Sq0">
                             <connections>
                                 <action selector="logoutTapped:" destination="Wyf-8h-ZQ8" id="boy-mW-nIT"/>
@@ -171,7 +172,7 @@
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOZ-Rh-zBN">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOZ-Rh-zBN">
                                 <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="17"/>
                                 <state key="normal" title="NEXT">
                                     <color key="titleColor" red="0.015686274510000001" green="0.19215686269999999" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -214,9 +215,7 @@
                             <constraint firstItem="oEh-zR-jty" firstAttribute="top" secondItem="Vnc-th-AeS" secondAttribute="bottom" constant="283" id="uck-dk-sWj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="G0a-jK-i3j">
-                        <barButtonItem key="backBarButtonItem" title="X" id="3ZS-aW-4dj"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="G0a-jK-i3j"/>
                     <connections>
                         <outlet property="cameraIcon" destination="dow-Zi-zgS" id="iNA-ti-TeA"/>
                         <outlet property="imageView" destination="G40-0N-37E" id="jbF-Qs-pQm"/>

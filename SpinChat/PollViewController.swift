@@ -21,7 +21,7 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     var imagePicker = UIImagePickerController()
     var activeField = UITextField()
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,22 +34,32 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         imagePicker.delegate = self
         
+        
+        //Image View Design
+        
         imageView.isHidden = true
         imageView.layer.borderWidth = 0
         imageView.layer.borderColor = UIColor.clear.cgColor
         imageView.layer.cornerRadius = 4
         
+        
+        //Text Field Design
         questionTextField.sizeToFit()
         
         yesTextField.borderStyle = UITextBorderStyle.roundedRect
         noTextField.borderStyle = UITextBorderStyle.roundedRect
     
+        // Custom Back Button
+
+        
+        //Navigation Bar Design
         navigationController?.navigationBar.barTintColor = UIColor.white
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.gray, NSFontAttributeName: UIFont(name: "Proxima Nova", size: 20)!]
         navigationController?.navigationBar.backItem?.backBarButtonItem!.title = "X"
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -64,6 +74,8 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
 
+    //When the image is edited and chosen
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         let image = info[UIImagePickerControllerEditedImage] as! UIImage
@@ -82,6 +94,7 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     }
     
+
     @IBAction func nextTapped(_ sender: AnyObject) {
         
         nextButton.isEnabled = false
@@ -105,6 +118,8 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     
+    //Adjusting Text Field positions when the image view is displayed
+    
     func moveTextFields () {
         
         yesTextField.frame.origin = CGPoint(x: 37, y: 510)
@@ -114,6 +129,17 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     
+    
+    
+    ///Function that disables the next button if there is no text in the question field
+
+    //func textFieldDidChange(textField: UITextField) {
+       // if questionTextField.text == ""  {
+         //   nextButton.isEnabled = false
+       // } else {
+          //  nextButton.isEnabled = true
+      //  }
+  //  }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextViewController = segue.destination as! SelectFriendsViewController
