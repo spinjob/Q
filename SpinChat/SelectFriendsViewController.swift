@@ -16,8 +16,10 @@ class SelectFriendsViewController: UIViewController, UITableViewDataSource, UITa
     var users : [User] = []
     
     var imageURL = ""
-    
     var questionString = ""
+    var answerString1 = ""
+    var answerString2 = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +68,7 @@ class SelectFriendsViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = users[indexPath.row]
-        let snap = ["from":user.email, "description": questionString, "imageURL":imageURL]
+        let snap = ["from":user.email, "question": questionString, "imageURL":imageURL, "answer1": answerString1, "answer2":answerString2]
         
         FIRDatabase.database().reference().child("users").child(user.uid).child("snaps").childByAutoId().setValue(snap)
     }

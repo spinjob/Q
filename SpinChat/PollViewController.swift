@@ -10,27 +10,35 @@ import UIKit
 import FirebaseStorage
 
 class PollViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+    
 
+    
+    //UI Outlets
+    
     @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var yesTextField: UITextField!
     @IBOutlet weak var noTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var cameraIcon: UIButton!
-    
+    @IBOutlet weak var yesButtonVerticalConstraint: NSLayoutConstraint!
+    @IBOutlet weak var yesButtonHorizontalConstraint: NSLayoutConstraint!
+    @IBOutlet weak var noButtonHorizontalConstraint: NSLayoutConstraint!
+    @IBOutlet weak var noButtonVerticalConstraint: NSLayoutConstraint!
+    @IBOutlet weak var questionTextVerticalConstraint: NSLayoutConstraint!
+    @IBOutlet weak var questionTextHorizontalConstraint: NSLayoutConstraint!
+    @IBOutlet weak var cameraIconVerticalConstraint: NSLayoutConstraint!
+    @IBOutlet weak var cameraIconHorizontalConstraint: NSLayoutConstraint!
     
     var imagePicker = UIImagePickerController()
     var activeField = UITextField()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if imageView.isHidden == false {
-            moveTextFields()
-        } else {
         
-        }
+        //Image Picker Delegate
         
         imagePicker.delegate = self
         
@@ -48,8 +56,6 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         yesTextField.borderStyle = UITextBorderStyle.roundedRect
         noTextField.borderStyle = UITextBorderStyle.roundedRect
-    
-        // Custom Back Button
 
         
         //Navigation Bar Design
@@ -60,19 +66,16 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
+        //Picker View Design
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         [questionTextField .becomeFirstResponder()];
     }
     
-    override func viewDidLayoutSubviews() {
-        if imageView.isHidden == false {
-            moveTextFields()
-        } else {
-            
-        }
-    }
+
 
     //When the image is edited and chosen
     
@@ -85,10 +88,12 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         imageView.isHidden = false
         
         imagePicker.dismiss(animated: true, completion: moveTextFields)
+        
+        
     }
     
     @IBAction func cameraTapped(_ sender: AnyObject) {
-        imagePicker.sourceType = .camera
+        imagePicker.sourceType = .savedPhotosAlbum
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
 
@@ -122,29 +127,27 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     func moveTextFields () {
         
-        yesTextField.frame.origin = CGPoint(x: 37, y: 510)
-        noTextField.frame.origin = CGPoint(x: 220, y: 510)
-        questionTextField.frame.origin = CGPoint(x: 37, y: 460)
-        cameraIcon.frame.origin = CGPoint(x: 338, y: 395)
-        
+        if imageView.isHidden == true {
+            print("No image view")
+        } else {
+            yesButtonVerticalConstraint.constant = 420
+            noButtonVerticalConstraint.constant = 420
+            yesButtonHorizontalConstraint.constant = 15
+            noButtonHorizontalConstraint.constant = 15
+            questionTextVerticalConstraint.constant = 375
+            questionTextHorizontalConstraint.constant = 16
+        }
     }
     
     
-    
-    ///Function that disables the next button if there is no text in the question field
 
-    //func textFieldDidChange(textField: UITextField) {
-       // if questionTextField.text == ""  {
-         //   nextButton.isEnabled = false
-       // } else {
-          //  nextButton.isEnabled = true
-      //  }
-  //  }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextViewController = segue.destination as! SelectFriendsViewController
         nextViewController.imageURL = sender as! String
         nextViewController.questionString = questionTextField.text!
+        nextViewController.answerString1 = yesTextField.text!
+        nextViewController.answerString2 = noTextField.text!
+        
             }
         }
 
