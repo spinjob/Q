@@ -12,6 +12,8 @@ class YNPoll {
     var imageURL = ""
     var questionString = ""
     var senderUser = ""
+    var recipientUsers : [User] = []
     var answer1 = ""
     var answer2 = ""
+    
 }

@@ -66,6 +66,12 @@ class ConversationsViewController: UIViewController, UITableViewDelegate, UITabl
         cell.answer2Button.setTitle(pollCell.answer2, for: UIControlState.normal)
         
         
+        let image = UIImage(named: "profileSocialSmall45.png")
+        cell.senderUserProfileImageView.image = image
+        cell.senderUserProfileImageView.layer.cornerRadius = (image?.size.width)!/2
+        cell.senderUserProfileImageView.layer.masksToBounds = true
+        
+        
         return cell
     }
     

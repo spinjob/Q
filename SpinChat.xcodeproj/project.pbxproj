@@ -20,6 +20,12 @@
 		687E51A01D9C9CD6004EB077 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 687E519F1D9C9CD6004EB077 /* Assets.xcassets */; };
 		687E51A31D9C9CD6004EB077 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 687E51A11D9C9CD6004EB077 /* LaunchScreen.storyboard */; };
 		68A6169A1DAC92AA00713830 /* PollTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A616991DAC92AA00713830 /* PollTableViewCell.swift */; };
+		68A616A01DAD7A8A00713830 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A6169F1DAD7A8A00713830 /* FriendTableViewCell.swift */; };
+		68A616A31DAD7CF900713830 /* selectedicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 68A616A11DAD7CF900713830 /* selectedicon.png */; };
+		68A616A41DAD7CF900713830 /* notselectedicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 68A616A21DAD7CF900713830 /* notselectedicon.png */; };
+		68A616A61DAD7E5C00713830 /* profile social.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 68A616A51DAD7E5C00713830 /* profile social.PNG */; };
+		68A616AA1DAD851C00713830 /* profileSocialSmall.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 68A616A91DAD851C00713830 /* profileSocialSmall.PNG */; };
+		68A616AC1DADB44800713830 /* profileSocialSmall45.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 68A616AB1DADB44800713830 /* profileSocialSmall45.PNG */; };
 		68F65F061DA5D49400496BCE /* ProximaNova-Reg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 68F65F011DA5D47300496BCE /* ProximaNova-Reg.otf */; };
 		68F65F071DA5D49400496BCE /* ProximaNovaSoft-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 68F65F021DA5D47300496BCE /* ProximaNovaSoft-Bold.otf */; };
 		68F65F081DA5D49400496BCE /* ProximaNova-Sbold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 68F65F031DA5D47300496BCE /* ProximaNova-Sbold.otf */; };
@@ -48,6 +54,12 @@
 		687E51A21D9C9CD6004EB077 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		687E51A41D9C9CD6004EB077 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68A616991DAC92AA00713830 /* PollTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PollTableViewCell.swift; path = ../PollTableViewCell.swift; sourceTree = "<group>"; };
+		68A6169F1DAD7A8A00713830 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		68A616A11DAD7CF900713830 /* selectedicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectedicon.png; sourceTree = "<group>"; };
+		68A616A21DAD7CF900713830 /* notselectedicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notselectedicon.png; sourceTree = "<group>"; };
+		68A616A51DAD7E5C00713830 /* profile social.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile social.PNG"; sourceTree = "<group>"; };
+		68A616A91DAD851C00713830 /* profileSocialSmall.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileSocialSmall.PNG; sourceTree = "<group>"; };
+		68A616AB1DADB44800713830 /* profileSocialSmall45.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileSocialSmall45.PNG; sourceTree = "<group>"; };
 		68F65F011DA5D47300496BCE /* ProximaNova-Reg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Reg.otf"; sourceTree = "<group>"; };
 		68F65F021DA5D47300496BCE /* ProximaNovaSoft-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNovaSoft-Bold.otf"; sourceTree = "<group>"; };
 		68F65F031DA5D47300496BCE /* ProximaNova-Sbold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Sbold.otf"; sourceTree = "<group>"; };
@@ -74,10 +86,9 @@
 			isa = PBXGroup;
 			children = (
 				687E519A1D9C9CD6004EB077 /* SignInViewController.swift */,
-				686662281DA73DB800EA3668 /* SelectFriendsViewController.swift */,
 				6846B1D01DA5C77400A58F46 /* PollViewController.swift */,
-				68203C841D9CC1BA004B7D95 /* ConversationsViewController.swift */,
-				68A616991DAC92AA00713830 /* PollTableViewCell.swift */,
+				68A6169E1DAD707B00713830 /* Select Friend ViewControllers */,
+				68A6169B1DAD704700713830 /* ConversationsScreen View Controllers */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -126,17 +137,56 @@
 			path = SpinChat;
 			sourceTree = "<group>";
 		};
-		68F65F001DA5D45700496BCE /* Resources */ = {
+		68A6169B1DAD704700713830 /* ConversationsScreen View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				68203C841D9CC1BA004B7D95 /* ConversationsViewController.swift */,
+				68A616991DAC92AA00713830 /* PollTableViewCell.swift */,
+			);
+			name = "ConversationsScreen View Controllers";
+			sourceTree = "<group>";
+		};
+		68A6169E1DAD707B00713830 /* Select Friend ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				686662281DA73DB800EA3668 /* SelectFriendsViewController.swift */,
+				68A6169F1DAD7A8A00713830 /* FriendTableViewCell.swift */,
+			);
+			name = "Select Friend ViewControllers";
+			sourceTree = "<group>";
+		};
+		68A616A71DAD801700713830 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6866622E1DAAA2E600EA3668 /* ss-pika.otf */,
 				68F65F011DA5D47300496BCE /* ProximaNova-Reg.otf */,
 				68F65F021DA5D47300496BCE /* ProximaNovaSoft-Bold.otf */,
 				68F65F031DA5D47300496BCE /* ProximaNova-Sbold.otf */,
 				68F65F041DA5D47300496BCE /* ProximaNovaSoft.otf */,
 				68F65F051DA5D47300496BCE /* ProximaNovaSoft-Medium.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		68A616A81DAD802900713830 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				68A616AB1DADB44800713830 /* profileSocialSmall45.PNG */,
+				68A616A51DAD7E5C00713830 /* profile social.PNG */,
+				68A616A91DAD851C00713830 /* profileSocialSmall.PNG */,
+				68A616A11DAD7CF900713830 /* selectedicon.png */,
+				68A616A21DAD7CF900713830 /* notselectedicon.png */,
 				68F65F0B1DA5DF1500496BCE /* Next Button Image.png */,
-				6866622E1DAAA2E600EA3668 /* ss-pika.otf */,
 				686E40FD1DA460DA00443230 /* Screen Shot 2016-05-17 at 7.38.49 PM.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		68F65F001DA5D45700496BCE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				68A616A81DAD802900713830 /* Images */,
+				68A616A71DAD801700713830 /* Fonts */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -226,15 +276,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68A616A41DAD7CF900713830 /* notselectedicon.png in Resources */,
 				68F65F0C1DA5DF1500496BCE /* Next Button Image.png in Resources */,
 				68F65F061DA5D49400496BCE /* ProximaNova-Reg.otf in Resources */,
 				68F65F071DA5D49400496BCE /* ProximaNovaSoft-Bold.otf in Resources */,
 				68F65F081DA5D49400496BCE /* ProximaNova-Sbold.otf in Resources */,
 				68F65F091DA5D49400496BCE /* ProximaNovaSoft.otf in Resources */,
+				68A616AA1DAD851C00713830 /* profileSocialSmall.PNG in Resources */,
+				68A616A31DAD7CF900713830 /* selectedicon.png in Resources */,
 				68F65F0A1DA5D49400496BCE /* ProximaNovaSoft-Medium.otf in Resources */,
+				68A616AC1DADB44800713830 /* profileSocialSmall45.PNG in Resources */,
 				687E51A31D9C9CD6004EB077 /* LaunchScreen.storyboard in Resources */,
 				68203C831D9CC0FC004B7D95 /* GoogleService-Info.plist in Resources */,
 				687E51A01D9C9CD6004EB077 /* Assets.xcassets in Resources */,
+				68A616A61DAD7E5C00713830 /* profile social.PNG in Resources */,
 				687E519E1D9C9CD6004EB077 /* Main.storyboard in Resources */,
 				686E40FE1DA460DB00443230 /* Screen Shot 2016-05-17 at 7.38.49 PM.png in Resources */,
 			);
@@ -295,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68A616A01DAD7A8A00713830 /* FriendTableViewCell.swift in Sources */,
 				686662291DA73DB800EA3668 /* SelectFriendsViewController.swift in Sources */,
 				687E519B1D9C9CD6004EB077 /* SignInViewController.swift in Sources */,
 				6866622B1DA7427A00EA3668 /* user.swift in Sources */,

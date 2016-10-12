@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseStorage
+import FirebaseAuth
 
 class PollViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
@@ -31,10 +32,9 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var cameraIconHorizontalConstraint: NSLayoutConstraint!
     
     var imagePicker = UIImagePickerController()
-    var activeField = UITextField()
+    var currentUserEmail = FIRAuth.auth()?.currentUser?.email
     
-    
-    override func viewDidLoad() {
+   override func viewDidLoad() {
         super.viewDidLoad()
         
         
@@ -102,10 +102,8 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     @IBAction func nextTapped(_ sender: AnyObject) {
         
-        nextButton.isEnabled = false
-        
+        if imageView.isHidden == false {
         let imagesFolder = FIRStorage.storage().reference().child("images")
-        
         let imageData = UIImageJPEGRepresentation(imageView.image!, 0.1)!
         
         
@@ -119,8 +117,10 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             } else {
                 self.performSegue(withIdentifier: "selectFriendsSegue", sender: metadata?.downloadURL()!.absoluteString)
             }
+            }} else {
+            
+            self.performSegue(withIdentifier: "selectFriendsSegue", sender: nil)
         }
-        
     }
     
     //Adjusting Text Field positions when the image view is displayed
@@ -143,12 +143,20 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextViewController = segue.destination as! SelectFriendsViewController
-        nextViewController.imageURL = sender as! String
+        
         nextViewController.questionString = questionTextField.text!
         nextViewController.answerString1 = yesTextField.text!
         nextViewController.answerString2 = noTextField.text!
+        nextViewController.fromUserEmail = currentUserEmail!
         
+        if imageView.isHidden == false {
+        nextViewController.imageURL = sender as! String
+
             }
+        else {
+            
+        }
         }
 
 
+}

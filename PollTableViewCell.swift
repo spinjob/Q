@@ -14,10 +14,12 @@ class PollTableViewCell: UITableViewCell {
     @IBOutlet weak var senderUserTextLabel: UILabel!
     @IBOutlet weak var answer1Button: UIButton!
     @IBOutlet weak var answer2Button: UIButton!
+    @IBOutlet weak var senderUserProfileImageView: UIImageView!
     
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         
         answer1Button.layer.cornerRadius = 3.5
         answer2Button.layer.cornerRadius = 3.5

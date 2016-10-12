@@ -10,9 +10,14 @@ import UIKit
 
 class FriendTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var friendProfileImageView: UIImageView!
+    @IBOutlet weak var friendNameTextLabel: UILabel!
+    @IBOutlet weak var friendNotSelectedIcon: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

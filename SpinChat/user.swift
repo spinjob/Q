@@ -10,6 +10,7 @@ import Foundation
 
 class User {
     var email = ""
+    var name = ""
     var uid = ""
 
 }
