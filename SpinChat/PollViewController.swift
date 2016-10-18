@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseStorage
 import FirebaseAuth
+import FirebaseDatabase
 
 class PollViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
@@ -32,11 +33,11 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var cameraIconHorizontalConstraint: NSLayoutConstraint!
     
     var imagePicker = UIImagePickerController()
-    var currentUserEmail = FIRAuth.auth()?.currentUser?.email
+    let currentUser = User()
     
    override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         
         //Image Picker Delegate
         
@@ -65,10 +66,17 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+    
         
-        //Picker View Design
+    FIRDatabase.database().reference().child("users").child((FIRAuth.auth()!.currentUser)!.uid).observe(FIRDataEventType.childAdded, with: {(snapshot) in
+        print(snapshot)
         
+        let currentUser = User()
+        let snapshotValue = snapshot.value as? NSDictionary
+        currentUser.name = snapshotValue!["name"] as! String
         
+    })
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -101,7 +109,11 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
 
     @IBAction func nextTapped(_ sender: AnyObject) {
-        
+//        let poll = ["from": FIRAuth.auth()?.currentUser?.email, "question": questionTextField.text, "answer1": yesTextField.text, "answer2":noTextField.text]
+//        
+//        FIRDatabase.database().reference().child("polls").childByAutoId().setValue(poll)
+//        
+
         if imageView.isHidden == false {
         let imagesFolder = FIRStorage.storage().reference().child("images")
         let imageData = UIImageJPEGRepresentation(imageView.image!, 0.1)!
@@ -147,7 +159,10 @@ class PollViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         nextViewController.questionString = questionTextField.text!
         nextViewController.answerString1 = yesTextField.text!
         nextViewController.answerString2 = noTextField.text!
-        nextViewController.fromUserEmail = currentUserEmail!
+        nextViewController.fromUserEmail = currentUser.email
+        nextViewController.fromUserName = (FIRAuth.auth()?.currentUser?.uid)!
+    
+        
         
         if imageView.isHidden == false {
         nextViewController.imageURL = sender as! String

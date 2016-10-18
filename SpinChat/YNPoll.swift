@@ -13,7 +13,11 @@ class YNPoll {
     var questionString = ""
     var senderUser = ""
     var recipientUsers : [User] = []
+    var recipientUserIDString = ""
+    var recipientUserNameString = ""
     var answer1 = ""
     var answer2 = ""
+    var answerDictionary = [String: [String]]()
+    var pollID = ""
     
 }

@@ -19,6 +19,7 @@ class SelectFriendsViewController: UIViewController, UITableViewDataSource, UITa
     var fromUserEmail = ""
     var fromUserName = ""
     var fromUserUID = ""
+    var pollID = ""
     
     var imageURL = ""
     var questionString = ""
@@ -45,7 +46,7 @@ class SelectFriendsViewController: UIViewController, UITableViewDataSource, UITa
             
             let user = User()
             let snapshotValue = snapshot.value as? NSDictionary
-            user.email = snapshotValue!["email"] as! String
+            user.name = snapshotValue!["name"] as! String
             
             user.uid = snapshot.key
             
@@ -105,7 +106,8 @@ class SelectFriendsViewController: UIViewController, UITableViewDataSource, UITa
         let poll = ["from": fromUserEmail, "question": questionString, "imageURL":imageURL, "answer1": answerString1, "answer2":answerString2, "to": stringRepresentation]
 
         for i in 0..<n0 {
-            FIRDatabase.database().reference().child("users").child(selectedUsers.first!).child("snaps").childByAutoId().setValue(poll)
+            FIRDatabase.database().reference().child("users").child(selectedUsers.first!).child("snaps").child("").setValue(poll)
+
             
             selectedUsers.removeFirst()
         }

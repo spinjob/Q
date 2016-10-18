@@ -7,16 +7,22 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
 
 class PollTableViewCell: UITableViewCell {
+    
+    
     
     @IBOutlet weak var questionStringTextLabel: UILabel!
     @IBOutlet weak var senderUserTextLabel: UILabel!
     @IBOutlet weak var answer1Button: UIButton!
     @IBOutlet weak var answer2Button: UIButton!
     @IBOutlet weak var senderUserProfileImageView: UIImageView!
-    
+    @IBOutlet weak var recipientUserTextLabel: UILabel!
 
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -28,14 +34,15 @@ class PollTableViewCell: UITableViewCell {
         answer2Button.layer.borderColor = UIColor.init(red: 0, green: 209, blue: 213, alpha: 1).cgColor
         answer2Button.layer.borderWidth = 0.2
         
-        
+
         // Initialization code
     }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+       
 
-        // Configure the view for the selected state
     }
 
 }

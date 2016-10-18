@@ -26,6 +26,7 @@
 		68A616A61DAD7E5C00713830 /* profile social.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 68A616A51DAD7E5C00713830 /* profile social.PNG */; };
 		68A616AA1DAD851C00713830 /* profileSocialSmall.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 68A616A91DAD851C00713830 /* profileSocialSmall.PNG */; };
 		68A616AC1DADB44800713830 /* profileSocialSmall45.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 68A616AB1DADB44800713830 /* profileSocialSmall45.PNG */; };
+		68A616B21DB587A000713830 /* LoginPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A616B11DB587A000713830 /* LoginPhoneViewController.swift */; };
 		68F65F061DA5D49400496BCE /* ProximaNova-Reg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 68F65F011DA5D47300496BCE /* ProximaNova-Reg.otf */; };
 		68F65F071DA5D49400496BCE /* ProximaNovaSoft-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 68F65F021DA5D47300496BCE /* ProximaNovaSoft-Bold.otf */; };
 		68F65F081DA5D49400496BCE /* ProximaNova-Sbold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 68F65F031DA5D47300496BCE /* ProximaNova-Sbold.otf */; };
@@ -60,6 +61,7 @@
 		68A616A51DAD7E5C00713830 /* profile social.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile social.PNG"; sourceTree = "<group>"; };
 		68A616A91DAD851C00713830 /* profileSocialSmall.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileSocialSmall.PNG; sourceTree = "<group>"; };
 		68A616AB1DADB44800713830 /* profileSocialSmall45.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileSocialSmall45.PNG; sourceTree = "<group>"; };
+		68A616B11DB587A000713830 /* LoginPhoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPhoneViewController.swift; sourceTree = "<group>"; };
 		68F65F011DA5D47300496BCE /* ProximaNova-Reg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Reg.otf"; sourceTree = "<group>"; };
 		68F65F021DA5D47300496BCE /* ProximaNovaSoft-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNovaSoft-Bold.otf"; sourceTree = "<group>"; };
 		68F65F031DA5D47300496BCE /* ProximaNova-Sbold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Sbold.otf"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			children = (
 				68203C7F1D9CBCEA004B7D95 /* SpinChat.entitlements */,
 				687E51981D9C9CD6004EB077 /* AppDelegate.swift */,
+				68A616B11DB587A000713830 /* LoginPhoneViewController.swift */,
 				687E519C1D9C9CD6004EB077 /* Main.storyboard */,
 				6866622C1DA742A100EA3668 /* ViewControllers */,
 				6866622D1DA742C400EA3668 /* Models */,
@@ -357,6 +360,7 @@
 				6846B1D11DA5C77400A58F46 /* PollViewController.swift in Sources */,
 				68A6169A1DAC92AA00713830 /* PollTableViewCell.swift in Sources */,
 				68203C851D9CC1BA004B7D95 /* ConversationsViewController.swift in Sources */,
+				68A616B21DB587A000713830 /* LoginPhoneViewController.swift in Sources */,
 				687E51991D9C9CD6004EB077 /* AppDelegate.swift in Sources */,
 				68755D4A1DAC8B8C0057A2E3 /* YNPoll.swift in Sources */,
 			);
